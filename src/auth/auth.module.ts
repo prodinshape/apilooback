@@ -9,7 +9,7 @@ import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [JwtModule.register({
-    secret: 'secretKey',
+    secret: process.env.JWT_SECRET,
   }), UserModule],
   controllers: [AuthController],
   providers: [AuthService, AccessTokenStrategy, RefreshTokenStrategy, ConfigService],

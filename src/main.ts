@@ -9,13 +9,10 @@ async function bootstrap() {
     .setTitle('apilooback')
     .setDescription('The cats API description')
     .setVersion('1.0')
-    .addTag('cats')
     .build();
-
 
   const document = SwaggerModule.createDocument(app, config);
 
-  console.log(process.env.NODE_ENV);
   if (process.env.NODE_ENV === 'development') {
     const fs = require('fs')
 
