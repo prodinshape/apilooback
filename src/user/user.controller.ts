@@ -8,18 +8,6 @@ import * as bcrypt from 'bcrypt';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Post()
-  async create(@Body() createUserDto: CreateUserDto) {
-    const saltOrRounds = 10;
-    const hashedPassword = await bcrypt.hash(createUserDto.password, saltOrRounds);
-    const user = {
-      ...createUserDto,
-      password: hashedPassword,
-    };
-
-    return this.userService.create(user);
-  }
-
   @Get()
   findAll() {
     return this.userService.findAll();

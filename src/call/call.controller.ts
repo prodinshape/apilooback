@@ -9,6 +9,11 @@ import { UpdateCallDto } from './dto/update-call.dto';
 export class CallController {
   constructor(private readonly callService: CallService) {}
 
+  @Post()
+  create(@Body() createCallDto: CreateCallDto) {
+    return this.callService.create(createCallDto);
+  }
+
   @Get()
   findAll() {
     return this.callService.findAll();
