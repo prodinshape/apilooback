@@ -18,6 +18,9 @@ import { CallService } from './call/call.service';
 import { Call } from './call/entities/call.entity';
 import { AuthService } from './auth/auth.service';
 import { JwtService } from '@nestjs/jwt';
+import { WorkspaceModule } from './workspace/workspace.module';
+import { WorkspaceController } from './workspace/workspace.controller';
+import { WorkspaceService } from './workspace/workspace.service';
 
 
 const DEFAULT_ADMIN = {
@@ -72,9 +75,10 @@ AdminJS.registerAdapter({ Database, Resource })
     }),
     UserModule,
     AuthModule,
+    WorkspaceModule,
     CallModule
   ],
-  controllers: [AppController, UserController, CallController],
-  providers: [AppService, UserService, CallService],
+  controllers: [AppController, UserController, CallController, WorkspaceController],
+  providers: [AppService, UserService, CallService, WorkspaceService],
 })
 export class AppModule {}

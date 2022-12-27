@@ -1,4 +1,5 @@
 import { Call } from 'src/call/entities/call.entity';
+import { Workspace } from 'src/workspace/entities/workspace.entity';
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, Unique, JoinColumn, OneToMany } from 'typeorm';
 
 
@@ -22,4 +23,7 @@ export class User extends BaseEntity {
 
   @OneToMany(() => Call, (call) => call.user)
   calls: Call[];
+
+  @OneToMany(() => Workspace, (workspace) => workspace.user)
+  workspaces: Workspace[];
 }
